@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>Hello (Again) World</title>
+    <script src="../node_modules/cesium/Build/Cesium/Cesium.js"></script>
+    <link rel="stylesheet" href="../node_modules/cesium/Build/Cesium/Widgets/widgets.css">
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="cesiumContainer" class="fullSize"></div>
+<script>
+  var viewer = new Cesium.Viewer('cesiumContainer', {
+//    禁止选择图层工具
+    baseLayerPicker: false,
+    imageryProvider: new Cesium.UrlTemplateImageryProvider({
+      url: 'https://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}',
+      enablePickFeatures: false,
+      maximumLevel: 20
+    })
+  });
+</script>
+</body>
